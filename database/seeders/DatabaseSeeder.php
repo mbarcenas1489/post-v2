@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             SupplierSeeder::class,
             CustomerSeeder::class,
             ProductSeeder::class,
+            UserSeeder::class,
         ]);
 
         // Usuario admin de prueba si no existe

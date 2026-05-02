@@ -7,7 +7,8 @@ use App\Models\Sale;
 use App\Models\SaleItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Exports\SalesExport;
+use Maatwebsite\Excel\Facades\Excel;
 class SaleController extends Controller
 {
     /**
@@ -167,5 +168,10 @@ class SaleController extends Controller
     public function destroy(Sale $sale)
     {
         //
+    }
+
+    public function export()
+    {
+        return Excel::download(new SalesExport, 'reporte_ventas.xlsx');
     }
 }
