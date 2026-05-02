@@ -34,7 +34,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/reports/sales', [ReportsController::class, 'sales'])->name('reports.sales');
     Route::get('/reports/low-stock', [ReportsController::class, 'lowStock'])->name('reports.low_stock');
-    
+    Route::get('/reports/export', [ReportsController::class, 'export'])->name('reports.export');
+
     // POS Routes
     Route::get('/pos', [PosController::class, 'index'])->name('pos.index');
     Route::get('/pos/cart', [PosController::class, 'getCart'])->name('pos.cart');
@@ -44,7 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/pos/clear-cart', [PosController::class, 'clearCart'])->name('pos.clear-cart');
     Route::post('/pos/process-sale', [PosController::class, 'processSale'])->name('pos.process-sale');
     Route::get('/pos/ticket/{sale}', [PosController::class, 'printTicket'])->name('pos.ticket');
-    
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
